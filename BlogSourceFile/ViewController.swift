@@ -12,8 +12,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        runPropertyWrapper()
     }
-
-
+    
+    private func runPropertyWrapper() {
+        print("value: \(UserDefaultManager.usrNm)")
+        UserDefaultManager.usrNm = "KJS"
+        print("value: \(UserDefaultManager.usrNm)")
+    }
 }
 
