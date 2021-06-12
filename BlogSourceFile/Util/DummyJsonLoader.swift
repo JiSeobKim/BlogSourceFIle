@@ -8,11 +8,6 @@
 
 import Foundation
 
-
-class JsonLoader {
-    
-}
-
 //
 //  DummyJsonLoader.swift
 //  uTicket
@@ -26,6 +21,8 @@ class DummyJsonLoader {
     enum API: String {
         case postingAPI = "PostingJSON"
         case dataType = "DataTypeJSON"
+        case codableThrow = "CodableThrowJSON"
+        
     }
     
     
@@ -55,6 +52,7 @@ class DummyJsonLoader {
             let decodeData = try JSONDecoder().decode(type, from: data)
             return decodeData
         } catch {
+            print(error)
             return nil
         }
         

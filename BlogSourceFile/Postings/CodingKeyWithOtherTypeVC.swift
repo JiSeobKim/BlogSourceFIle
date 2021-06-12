@@ -12,6 +12,37 @@ class CodingKeyWithOtherTypeVC: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
     
+    struct Model: Codable {
+        let userName: String
+        let isHidden: Bool
+        
+        enum CodingKeys: String, CodingKey {
+            case userName
+            case isHidden
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.userName = try container.decode(String.self, forKey: .userName)
+            self.isHidden = try container.decode(String.self, forKey: .isHidden) == "Y"
+        }
+    }
+    
+    struct Model2: Codable {
+        let userName: String
+        let sequenceNo: Int
+        let orderNo: Int
+        let address: String
+        
+        enum CodingKeys: String, CodingKey {
+            case userName = "usrNm"
+            case sequenceNo = "seqNo"
+            case orderNo = "ordNo"
+            case address = "addr"
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,23 +76,6 @@ class CodingKeyWithOtherTypeVC: UIViewController {
         }
     }
     
-    struct Model: Codable {
-        let userName: String
-        let isHidden: Bool
-        
-        enum CodingKeys: String, CodingKey {
-            case userName
-            case isHidden
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.userName = try container.decode(String.self, forKey: .userName)
-            self.isHidden = try container.decode(String.self, forKey: .isHidden) == "Y"
-        }
-    }
-    
     // 테스트
     func testDiffType() {
         // 1. 통신 결과값
@@ -89,19 +103,5 @@ class CodingKeyWithOtherTypeVC: UIViewController {
 
 
 
-
-struct Model2: Codable {
-    let userName: String
-    let sequenceNo: Int
-    let orderNo: Int
-    let address: String
-    
-    enum CodingKeys: String, CodingKey {
-        case userName = "usrNm"
-        case sequenceNo = "seqNo"
-        case orderNo = "ordNo"
-        case address = "addr"
-    }
-}
 
 

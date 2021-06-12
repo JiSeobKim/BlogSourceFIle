@@ -15,12 +15,14 @@
 		A0816C202663889E00DB525D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0816C1E2663889E00DB525D /* LaunchScreen.storyboard */; };
 		A0816C2B2663889E00DB525D /* BlogSourceFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C2A2663889E00DB525D /* BlogSourceFileTests.swift */; };
 		A0816C362663889E00DB525D /* BlogSourceFileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C352663889E00DB525D /* BlogSourceFileUITests.swift */; };
-		A0816C492663896A00DB525D /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C432663896A00DB525D /* JsonLoader.swift */; };
+		A0816C492663896A00DB525D /* DummyJsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C432663896A00DB525D /* DummyJsonLoader.swift */; };
 		A0816C4A2663896A00DB525D /* CodingKeyWithOtherTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C442663896A00DB525D /* CodingKeyWithOtherTypeVC.swift */; };
 		A0816C4B2663896A00DB525D /* PostingJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0816C462663896A00DB525D /* PostingJSON.json */; };
 		A0816C4C2663896A00DB525D /* DataTypeJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0816C472663896A00DB525D /* DataTypeJSON.json */; };
 		A0816C4D2663896A00DB525D /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = A0816C482663896A00DB525D /* User.json */; };
 		A0816C4F2663898C00DB525D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C4E2663898C00DB525D /* MainViewController.swift */; };
+		A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */; };
+		A0816C552663949400DB525D /* CodableThrowJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0816C542663949400DB525D /* CodableThrowJSON.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +57,14 @@
 		A0816C312663889E00DB525D /* BlogSourceFileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogSourceFileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0816C352663889E00DB525D /* BlogSourceFileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogSourceFileUITests.swift; sourceTree = "<group>"; };
 		A0816C372663889E00DB525D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0816C432663896A00DB525D /* JsonLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
+		A0816C432663896A00DB525D /* DummyJsonLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyJsonLoader.swift; sourceTree = "<group>"; };
 		A0816C442663896A00DB525D /* CodingKeyWithOtherTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingKeyWithOtherTypeVC.swift; sourceTree = "<group>"; };
 		A0816C462663896A00DB525D /* PostingJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostingJSON.json; sourceTree = "<group>"; };
 		A0816C472663896A00DB525D /* DataTypeJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DataTypeJSON.json; sourceTree = "<group>"; };
 		A0816C482663896A00DB525D /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		A0816C4E2663898C00DB525D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableThrowWithCodingKeyVC.swift; sourceTree = "<group>"; };
+		A0816C542663949400DB525D /* CodableThrowJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CodableThrowJSON.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 				A0816C462663896A00DB525D /* PostingJSON.json */,
 				A0816C472663896A00DB525D /* DataTypeJSON.json */,
 				A0816C482663896A00DB525D /* User.json */,
+				A0816C542663949400DB525D /* CodableThrowJSON.json */,
 			);
 			path = DummyJson;
 			sourceTree = "<group>";
@@ -157,7 +162,7 @@
 		A0816C5026638D8300DB525D /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				A0816C432663896A00DB525D /* JsonLoader.swift */,
+				A0816C432663896A00DB525D /* DummyJsonLoader.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A0816C442663896A00DB525D /* CodingKeyWithOtherTypeVC.swift */,
+				A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */,
 			);
 			path = Postings;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			files = (
 				A0816C202663889E00DB525D /* LaunchScreen.storyboard in Resources */,
 				A0816C4C2663896A00DB525D /* DataTypeJSON.json in Resources */,
+				A0816C552663949400DB525D /* CodableThrowJSON.json in Resources */,
 				A0816C1D2663889E00DB525D /* Assets.xcassets in Resources */,
 				A0816C4B2663896A00DB525D /* PostingJSON.json in Resources */,
 				A0816C4D2663896A00DB525D /* User.json in Resources */,
@@ -304,7 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0816C4A2663896A00DB525D /* CodingKeyWithOtherTypeVC.swift in Sources */,
-				A0816C492663896A00DB525D /* JsonLoader.swift in Sources */,
+				A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */,
+				A0816C492663896A00DB525D /* DummyJsonLoader.swift in Sources */,
 				A0816C1B2663889E00DB525D /* BlogSourceFile.xcdatamodeld in Sources */,
 				A0816C4F2663898C00DB525D /* MainViewController.swift in Sources */,
 				A0816C112663889E00DB525D /* AppDelegate.swift in Sources */,
