@@ -63,6 +63,7 @@
                         <outlet property="tableView" destination="Eb3-ww-ZJm" id="JII-hm-4rB"/>
                         <segue destination="f5a-aq-kYy" kind="show" identifier="CodingKey" id="VsY-bs-Chs"/>
                         <segue destination="XTG-0X-lu6" kind="show" identifier="CodableThrow" id="Un3-y0-c4e"/>
+                        <segue destination="FbF-pz-3af" kind="show" identifier="PropertyWrapper" id="Ypm-c9-moK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,6 +116,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0j-Dx-kWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2215.9420289855075" y="547.76785714285711"/>
+        </scene>
+        <!--Property Wrapper View Controller-->
+        <scene sceneID="EFP-bS-m7z">
+            <objects>
+                <viewController id="FbF-pz-3af" customClass="PropertyWrapperViewController" customModule="BlogSourceFile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WlZ-XC-bRK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BSa-fK-wbA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bgn-0e-9VS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zfl-WM-0AO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2216" y="1226"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e2V-vy-qLB">

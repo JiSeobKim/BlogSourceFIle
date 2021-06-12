@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A03C7AB52674EEB0002E904F /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C7AB42674EEB0002E904F /* UserDefaultWrapper.swift */; };
 		A03C7AB72674F5E4002E904F /* CodableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C7AB62674F5E4002E904F /* CodableWrapper.swift */; };
+		A03C7AB926750101002E904F /* PropertyWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C7AB826750101002E904F /* PropertyWrapperViewController.swift */; };
 		A0816C112663889E00DB525D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C102663889E00DB525D /* AppDelegate.swift */; };
 		A0816C132663889E00DB525D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C122663889E00DB525D /* SceneDelegate.swift */; };
 		A0816C182663889E00DB525D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0816C162663889E00DB525D /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		A03C7AB42674EEB0002E904F /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A03C7AB62674F5E4002E904F /* CodableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableWrapper.swift; sourceTree = "<group>"; };
+		A03C7AB826750101002E904F /* PropertyWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperViewController.swift; sourceTree = "<group>"; };
 		A0816C0D2663889E00DB525D /* BlogSourceFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogSourceFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0816C102663889E00DB525D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0816C122663889E00DB525D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,15 +132,14 @@
 			children = (
 				A0816C102663889E00DB525D /* AppDelegate.swift */,
 				A0816C122663889E00DB525D /* SceneDelegate.swift */,
-				A0816C142663889E00DB525D /* ViewController.swift */,
+				A0816C5126638D8C00DB525D /* Postings */,
 				A03C7AB32674EE92002E904F /* PropertyWrapper */,
 				A0816C4E2663898C00DB525D /* MainViewController.swift */,
 				A0816C162663889E00DB525D /* Main.storyboard */,
 				A0816C1C2663889E00DB525D /* Assets.xcassets */,
 				A0816C1E2663889E00DB525D /* LaunchScreen.storyboard */,
-				A0816C452663896A00DB525D /* DummyJson */,
 				A0816C5026638D8300DB525D /* Util */,
-				A0816C5126638D8C00DB525D /* Postings */,
+				A0816C452663896A00DB525D /* DummyJson */,
 				A0816C212663889E00DB525D /* Info.plist */,
 				A0816C192663889E00DB525D /* BlogSourceFile.xcdatamodeld */,
 			);
@@ -187,6 +188,7 @@
 			children = (
 				A0816C442663896A00DB525D /* CodingKeyWithOtherTypeVC.swift */,
 				A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */,
+				A03C7AB826750101002E904F /* PropertyWrapperViewController.swift */,
 			);
 			path = Postings;
 			sourceTree = "<group>";
@@ -328,11 +330,11 @@
 				A03C7AB72674F5E4002E904F /* CodableWrapper.swift in Sources */,
 				A0816C1B2663889E00DB525D /* BlogSourceFile.xcdatamodeld in Sources */,
 				A03C7AB52674EEB0002E904F /* UserDefaultWrapper.swift in Sources */,
-				A0816C152663889E00DB525D /* ViewController.swift in Sources */,
 				A0816C4A2663896A00DB525D /* CodingKeyWithOtherTypeVC.swift in Sources */,
 				A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */,
 				A0816C492663896A00DB525D /* DummyJsonLoader.swift in Sources */,
 				A0816C1B2663889E00DB525D /* BlogSourceFile.xcdatamodeld in Sources */,
+				A03C7AB926750101002E904F /* PropertyWrapperViewController.swift in Sources */,
 				A0816C4F2663898C00DB525D /* MainViewController.swift in Sources */,
 				A0816C112663889E00DB525D /* AppDelegate.swift in Sources */,
 				A0816C132663889E00DB525D /* SceneDelegate.swift in Sources */,
