@@ -14,21 +14,64 @@ class PropertyWrapperViewController: UIViewController {
         @APIStringBool var isHidden: Bool
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        runFoodTruct()
         runUserDefaultWrapper()
-        testCodable()
+//        testCodable()
     }
     
 
     
+    /// FoodTruck
+    private func runFoodTruct() {
+        var truck = FoodTruck()
+        print("""
+        pizzaPrice: \(truck.pizzaPrice)
+        pastaPrice: \(truck.pastaPrice)
+        chickenPrice: \(truck.chickenPrice)
+        soupPrice: \(truck.soupPrice)
+        kimchiPrice: \(truck.kimchiPrice)
+        """)
+        
+        truck.pizzaPrice = 12000
+        truck.pastaPrice = 8000
+        truck.chickenPrice = 20000
+        truck.soupPrice = 500
+        truck.kimchiPrice = 7500
+        
+        
+        print("""
+        \n
+        pizzaPrice: \(truck.pizzaPrice)
+        pastaPrice: \(truck.pastaPrice)
+        chickenPrice: \(truck.chickenPrice)
+        soupPrice: \(truck.soupPrice)
+        kimchiPrice: \(truck.kimchiPrice)
+        """)
+    }
+    
+    
+    /// UserDefault 적용
     private func runUserDefaultWrapper() {
-        print(UserDefaultManager.usrNm)
+        // 출력해보기
+        print("값 변경 전")
+        print("userName: \(UserDefaultManager.userName)")
+        print("hasMembership: \(UserDefaultManager.hasMembership)")
+
+        // 값 넣기
+        UserDefaultManager.userName = "KJS"
+        UserDefaultManager.hasMembership = true
+        
+        // 출력해보기
+        print("\n값 변경 후")
+        print("userName: \(UserDefaultManager.userName)")
+        print("hasMembership: \(UserDefaultManager.hasMembership)")
     }
 
     
-    // 테스트
+    /// 코더블 기본값 적용
     private func testCodable() {
         // 1. 통신 결과값
         let response = DummyJsonLoader.load(api: .dataType)!

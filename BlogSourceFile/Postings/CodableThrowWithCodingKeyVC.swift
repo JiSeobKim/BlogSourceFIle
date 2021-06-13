@@ -28,7 +28,8 @@ class CodableThrowWithCodingKeyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(loadData())
+        guard let model = loadData() else { return }
+        print(model)
     }
     
     func loadData() -> Model? {

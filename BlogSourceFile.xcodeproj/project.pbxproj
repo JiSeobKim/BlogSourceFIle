@@ -26,6 +26,7 @@
 		A0816C4F2663898C00DB525D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C4E2663898C00DB525D /* MainViewController.swift */; };
 		A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */; };
 		A0816C552663949400DB525D /* CodableThrowJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0816C542663949400DB525D /* CodableThrowJSON.json */; };
+		A0EB035F2675BA8000A751ED /* MaxPriceOrLessWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		A0816C4E2663898C00DB525D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableThrowWithCodingKeyVC.swift; sourceTree = "<group>"; };
 		A0816C542663949400DB525D /* CodableThrowJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CodableThrowJSON.json; sourceTree = "<group>"; };
+		A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxPriceOrLessWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				A03C7AB42674EEB0002E904F /* UserDefaultWrapper.swift */,
 				A03C7AB62674F5E4002E904F /* CodableWrapper.swift */,
+				A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */,
 			);
 			path = PropertyWrapper;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0EB035F2675BA8000A751ED /* MaxPriceOrLessWrapper.swift in Sources */,
 				A03C7AB72674F5E4002E904F /* CodableWrapper.swift in Sources */,
 				A0816C1B2663889E00DB525D /* BlogSourceFile.xcdatamodeld in Sources */,
 				A03C7AB52674EEB0002E904F /* UserDefaultWrapper.swift in Sources */,
