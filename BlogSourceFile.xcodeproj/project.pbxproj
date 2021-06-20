@@ -27,6 +27,7 @@
 		A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */; };
 		A0816C552663949400DB525D /* CodableThrowJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0816C542663949400DB525D /* CodableThrowJSON.json */; };
 		A0EB035F2675BA8000A751ED /* MaxPriceOrLessWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */; };
+		A0EB4C51267F422400DA68C0 /* PropertyWrapperJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableThrowWithCodingKeyVC.swift; sourceTree = "<group>"; };
 		A0816C542663949400DB525D /* CodableThrowJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CodableThrowJSON.json; sourceTree = "<group>"; };
 		A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxPriceOrLessWrapper.swift; sourceTree = "<group>"; };
+		A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PropertyWrapperJSON.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				A0816C472663896A00DB525D /* DataTypeJSON.json */,
 				A0816C482663896A00DB525D /* User.json */,
 				A0816C542663949400DB525D /* CodableThrowJSON.json */,
+				A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */,
 			);
 			path = DummyJson;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				A0816C202663889E00DB525D /* LaunchScreen.storyboard in Resources */,
 				A0816C4C2663896A00DB525D /* DataTypeJSON.json in Resources */,
 				A0816C552663949400DB525D /* CodableThrowJSON.json in Resources */,
+				A0EB4C51267F422400DA68C0 /* PropertyWrapperJSON.json in Resources */,
 				A0816C1D2663889E00DB525D /* Assets.xcassets in Resources */,
 				A0816C4B2663896A00DB525D /* PostingJSON.json in Resources */,
 				A0816C4D2663896A00DB525D /* User.json in Resources */,

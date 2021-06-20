@@ -11,15 +11,25 @@ class PropertyWrapperViewController: UIViewController {
     
     struct Model: Codable {
         let userName: String
-        @APIStringBool var isHidden: Bool
-        
+        @StringBoolConverter var isHidden: Bool
+        @ZeroDefault var intValue: Int
+        @ZeroDefault var doubleValue: Double
+    }
+    
+    struct EmptyModel: Decodable {
+        @DecodableDefault.EmptyString var valueOfString: String
+        @DecodableDefault.True var valueOfTrueBool: Bool
+        @DecodableDefault.False var valueOfFalseBool: Bool
+        @DecodableDefault.EmptyList var valueOfList: [String]
+        @DecodableDefault.EmptyMap var valueOfDictionary: [String:String]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        runFoodTruct()
-        runUserDefaultWrapper()
-//        testCodable()
+//        runUserDefaultWrapper()
+        testCodable()
+//        highWrapper()
     }
     
 
@@ -82,7 +92,9 @@ class PropertyWrapperViewController: UIViewController {
             // 3. 결과 출력
             let result = """
                 userNm = \(value.userName),
-                isHidden = \(value.isHidden)
+                isHidden = \(value.isHidden),
+                intValue = \(value.intValue),
+                doubleValue = \(value.doubleValue)
                 """
             
             print(result)
@@ -90,6 +102,24 @@ class PropertyWrapperViewController: UIViewController {
         } catch (let error) {
             // 4. 오류 출력
             print(error)
+        }
+    }
+    
+    /// wrapper 고급
+    private func highWrapper() {
+        guard let data = DummyJsonLoader.load(api: .dataType) else { return }
+        
+        do {
+            let value = try JSONDecoder().decode(EmptyModel.self, from: data)
+            print("""
+                value: \(value.valueOfTrueBool),
+                value: \(value.valueOfFalseBool),
+                value: \(value.valueOfString),
+                value: \(value.valueOfList),
+                value: \(value.valueOfDictionary)
+                """)
+        } catch let e {
+            print(e.localizedDescription)
         }
     }
 }

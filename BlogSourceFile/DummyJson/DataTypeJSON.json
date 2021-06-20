@@ -1,4 +1,5 @@
 {
     "userName" : "JS",
-    "isHidden" : "Y"
+    "isHidden" : "Y",
+    "intValue" : 3,
 }
