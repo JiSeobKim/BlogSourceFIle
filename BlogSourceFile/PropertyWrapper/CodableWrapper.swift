@@ -14,6 +14,10 @@ struct StringBoolConverter {
 }
 
 extension StringBoolConverter: Codable {
+    init() {
+        wrappedValue = false
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let stringBool = try? container.decode(String.self)
@@ -53,6 +57,11 @@ extension KeyedDecodingContainer {
     func decode(_ type: ZeroDefault<Double>.Type,
                 forKey key: Key) throws -> ZeroDefault<Double> {
         try decodeIfPresent(type, forKey: key) ?? .init()
+    }
+    
+    func decode(_ type: StringBoolConverter.Type, forKey key: Key) throws -> StringBoolConverter {
+        let value = try decodeIfPresent(type, forKey: key) ?? .init()
+        return value
     }
 }
 
@@ -121,3 +130,41 @@ extension KeyedDecodingContainer {
         try decodeIfPresent(type, forKey: key) ?? .init()
     }
 }
+
+
+
+struct CodableDefault {
+    
+    typealias True = Wrapper<DefaultType.True>
+    
+    @propertyWrapper
+    struct Wrapper<T: DecodableDefaultSource> {
+        typealias Value = T.Value
+        var wrappedValue = T.defaultValue
+    }
+    
+    
+    enum DefaultType {
+        enum True: DecodableDefaultSource {
+            typealias Value = Bool
+            static var defaultValue: Value { true }
+        }
+        enum False: DecodableDefaultSource {
+            static var defaultValue: Bool { false }
+        }
+    }
+}
+
+
+protocol WrapperDefaultAvailable {
+    
+}
+
+//
+//enum WrapperDefault {
+//    @propertyWrapper
+//    struct Wrapper {
+//
+//    }
+//
+//}
