@@ -9,6 +9,46 @@ import UIKit
 
 class PropertyWrapperViewController: UIViewController {
     
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        runFoodTruct()
+//        runUserDefaultWrapper()
+//        testCodable()
+//        highWrapper()
+        
+        postingFunction1()
+    }
+    
+
+    
+    
+}
+
+// MARK: - Posting
+extension PropertyWrapperViewController {
+    /// 포스팅 1
+    func postingFunction1() {
+        struct Model: Codable {
+            @StringBoolConverter var isHidden: Bool
+        }
+        
+        let jsonData = """
+            {
+                "isHidden" : "Y"
+            }
+            """.data(using: .utf8)!
+        
+        let result = try! JSONDecoder().decode(Model.self, from: jsonData)
+        
+        print("isHidden: \(result.isHidden)")
+        
+    }
+}
+
+// MARK: - Practice
+extension PropertyWrapperViewController {
     struct Model: Codable {
         let userName: String
         @StringBoolConverter var isHidden: Bool
@@ -23,16 +63,6 @@ class PropertyWrapperViewController: UIViewController {
         @DecodableDefault.EmptyList var valueOfList: [String]
         @DecodableDefault.EmptyMap var valueOfDictionary: [String:String]
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        runFoodTruct()
-//        runUserDefaultWrapper()
-        testCodable()
-//        highWrapper()
-    }
-    
-
     
     /// FoodTruck
     private func runFoodTruct() {
