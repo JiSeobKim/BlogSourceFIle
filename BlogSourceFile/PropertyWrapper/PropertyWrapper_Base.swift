@@ -17,7 +17,7 @@ extension StringBoolConverter: Codable {
     init() {
         wrappedValue = false
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let stringBool = try? container.decode(String.self)
