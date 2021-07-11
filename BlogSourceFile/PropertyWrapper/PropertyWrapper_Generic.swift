@@ -75,7 +75,7 @@ extension KeyedDecodingContainer {
 
 // MARK: - Test
 
-protocol DefaultWrapperAvailable {
+protocol JSONDefaultWrapperAvailable {
     associatedtype ValueType: Decodable
     static var defaultValue: ValueType { get }
 }
@@ -90,12 +90,15 @@ protocol JsonStringWrapperAvailable {
 
 
 
-enum DefaultWrapper {
+enum JSONDefaultWrapper {
     
     @propertyWrapper
-    struct Wrapper<T: DefaultWrapperAvailable> {
+    struct Wrapper<T: JSONDefaultWrapperAvailable> {
         typealias ValueType = T.ValueType
-        var wrappedValue = T.defaultValue
+        var wrappedValue: ValueType
+        init() {
+            wrappedValue = T.defaultValue
+        }
     }
     @propertyWrapper
     struct StringBoolConverter<T: DefaultWrapperStringConverterAvailable> {
@@ -107,15 +110,15 @@ enum DefaultWrapper {
     
     
     enum TypeCase {
-        enum True: DefaultWrapperAvailable {
+        enum True: JSONDefaultWrapperAvailable {
             static var defaultValue: Bool { true }
         }
         
-        enum False: DefaultWrapperAvailable {
+        enum False: JSONDefaultWrapperAvailable {
             static var defaultValue: Bool { false }
         }
         
-        enum Zero<T: Decodable>: DefaultWrapperAvailable where T: Numeric {
+        enum Zero<T: Decodable>: JSONDefaultWrapperAvailable where T: Numeric {
             static var defaultValue: T { 0 }
         }
         
@@ -129,14 +132,26 @@ enum DefaultWrapper {
     }
 }
 
-extension DefaultWrapper.Wrapper: Decodable {
+extension JSONDefaultWrapper.Wrapper: Decodable {
+    class AA {
+        
+    }
+    struct BB {
+        
+    }
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         wrappedValue = try container.decode(ValueType.self)
+        
+        let aa = AA()
+        let bb = BB()
+    
     }
+    
+    
 }
 
-extension DefaultWrapper.StringBoolConverter: Decodable {
+extension JSONDefaultWrapper.StringBoolConverter: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let stringBool = try? container.decode(String.self)
@@ -145,21 +160,21 @@ extension DefaultWrapper.StringBoolConverter: Decodable {
     }
 }
 
-extension DefaultWrapper {
-    typealias DefaultTrue = Wrapper<DefaultWrapper.TypeCase.True>
-    typealias DefaultFalse = Wrapper<DefaultWrapper.TypeCase.False>
-    typealias DefaultZeroDouble = Wrapper<DefaultWrapper.TypeCase.Zero<Double>>
-    typealias DefaultZeroInt = Wrapper<DefaultWrapper.TypeCase.Zero<Int>>
-    typealias DefaultStringTrue = StringBoolConverter<DefaultWrapper.TypeCase.StringTrue>
-    typealias DefaultStringFalse = StringBoolConverter<DefaultWrapper.TypeCase.StringFalse>
+extension JSONDefaultWrapper {
+    typealias DefaultTrue = Wrapper<JSONDefaultWrapper.TypeCase.True>
+    typealias DefaultFalse = Wrapper<JSONDefaultWrapper.TypeCase.False>
+    typealias DefaultZeroDouble = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Double>>
+    typealias DefaultZeroInt = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Int>>
+    typealias DefaultStringTrue = StringBoolConverter<JSONDefaultWrapper.TypeCase.StringTrue>
+    typealias DefaultStringFalse = StringBoolConverter<JSONDefaultWrapper.TypeCase.StringFalse>
 }
 
 extension KeyedDecodingContainer {
-    func decode<T: DefaultWrapperAvailable>(_ type: DefaultWrapper.Wrapper<T>.Type, forKey key: Key) throws -> DefaultWrapper.Wrapper<T> {
+    func decode<T: JSONDefaultWrapperAvailable>(_ type: JSONDefaultWrapper.Wrapper<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper.Wrapper<T> {
         try decodeIfPresent(type, forKey: key) ?? .init()
     }
     
-    func decode<T: DefaultWrapperStringConverterAvailable>(_ type: DefaultWrapper.StringBoolConverter<T>.Type, forKey key: Key) throws -> DefaultWrapper.StringBoolConverter<T> {
+    func decode<T: DefaultWrapperStringConverterAvailable>(_ type: JSONDefaultWrapper.StringBoolConverter<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper.StringBoolConverter<T> {
         let value = try decodeIfPresent(type, forKey: key)
         let result = value ?? .init()
             
@@ -172,12 +187,12 @@ extension KeyedDecodingContainer {
 
 // MARK: - Test
 class PropertyWrapperGeneric: Decodable {
-    @DefaultWrapper.DefaultTrue var isHiddenTrue
-    @DefaultWrapper.DefaultFalse var isHiddenFalse
-    @DefaultWrapper.DefaultZeroDouble var doubleValue: Double
-    @DefaultWrapper.DefaultZeroInt var intValue: Int
-    @DefaultWrapper.DefaultStringTrue var isStringTrue:Bool
-    @DefaultWrapper.DefaultStringFalse var isStringFalse
+    @JSONDefaultWrapper.DefaultTrue var isHiddenTrue
+    @JSONDefaultWrapper.DefaultFalse var isHiddenFalse
+    @JSONDefaultWrapper.DefaultZeroDouble var doubleValue: Double
+    @JSONDefaultWrapper.DefaultZeroInt var intValue: Int
+    @JSONDefaultWrapper.DefaultStringTrue var isStringTrue:Bool
+    @JSONDefaultWrapper.DefaultStringFalse var isStringFalse
     
     
     static func test() {
