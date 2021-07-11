@@ -76,10 +76,7 @@ extension KeyedDecodingContainer {
 
 // MARK: - Test
 
-protocol JSONDefaultWrapperAvailable {
-    associatedtype ValueType: Decodable
-    static var defaultValue: ValueType { get }
-}
+
 
 protocol DefaultWrapperStringConverterAvailable {
     static var defaultValue: Bool { get }
@@ -277,98 +274,5 @@ extension WrapperPosting1.JsonStringWrapper {
 extension KeyedDecodingContainer {
     func decode(_ type: WrapperPosting1.JsonStringWrapper.Type, forKey key: Key) throws -> WrapperPosting1.JsonStringWrapper {
         try decodeIfPresent(type, forKey: key) ?? .init()
-    }
-}
-
-// MARK: - For Posting 3
-enum JSONDefaultWrapper {
-    typealias EmptyString = Wrapper<JSONDefaultWrapper.TypeCase.EmptyString>
-    typealias True = Wrapper<JSONDefaultWrapper.TypeCase.True>
-    typealias False = Wrapper<JSONDefaultWrapper.TypeCase.False>
-    typealias IntZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Int>>
-    typealias DoubleZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Double>>
-    typealias FloatZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Float>>
-    typealias CGFloatZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<CGFloat>>
-    
-    // Property Wrapper
-    @propertyWrapper
-    struct Wrapper<T: JSONDefaultWrapperAvailable> {
-        typealias ValueType = T.ValueType
-
-        var wrappedValue: ValueType
-
-        init() {
-        wrappedValue = T.defaultValue
-        }
-    }
-
-    enum TypeCase {
-        // Type Enums
-        enum True: JSONDefaultWrapperAvailable {
-            // 기본값 - true
-            static var defaultValue: Bool { true }
-        }
-
-        enum False: JSONDefaultWrapperAvailable {
-            // 기본값 - false
-            static var defaultValue: Bool { false }
-        }
-
-        enum EmptyString: JSONDefaultWrapperAvailable {
-            // 기본값 - ""
-            static var defaultValue: String { "" }
-        }
-        
-        enum Zero<T: Decodable>: JSONDefaultWrapperAvailable where T: Numeric {
-            // 기본값 - 0
-            static var defaultValue: T { 0 }
-        }
-    }
-}
-
-extension JSONDefaultWrapper.Wrapper: Decodable {
-    init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        self.wrappedValue = try container.decode(ValueType.self)
-    }
-}
-
-extension KeyedDecodingContainer {
-    func decode<T: JSONDefaultWrapperAvailable>(_ type: JSONDefaultWrapper.Wrapper<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper.Wrapper<T> {
-        try decodeIfPresent(type, forKey: key) ?? .init()
-    }
-}
-
-class Posting: Decodable {
-    // Property Wrapper를 이용한 프로퍼티
-    @JSONDefaultWrapper.EmptyString var stringValue: String
-    @JSONDefaultWrapper.True var trueValue: Bool
-    @JSONDefaultWrapper.False var falseValue: Bool
-    @JSONDefaultWrapper.IntZero var intValue: Int
-    @JSONDefaultWrapper.DoubleZero var doubleValue: Double
-    @JSONDefaultWrapper.FloatZero var floatValue: Float
-    @JSONDefaultWrapper.CGFloatZero var cGFloatValue: CGFloat
-    
-    static func test() {
-        // 전혀 상관없는 JSON 형태의 데이터
-        let data = """
-            {
-                "test": 3,
-            }
-            """.data(using: .utf8)!
-        
-        // Decodable을 이용한 객체 생성
-        let object = try! JSONDecoder().decode(Posting.self, from: data)
-        
-        // 빈값인지 확인
-        print("""
-            stringValue는 빈 값인가? \(object.stringValue == "")
-            trueValue는? \(object.trueValue)
-            falseValue는? \(object.falseValue)
-            intValue는? \(object.intValue)
-            doubleValue는? \(object.doubleValue)
-            floatValue는? \(object.floatValue)
-            cGFloatValue는? \(object.cGFloatValue)
-            """)
     }
 }
