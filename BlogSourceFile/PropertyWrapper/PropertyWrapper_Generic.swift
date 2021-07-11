@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - High Level
 protocol DecodableDefaultSource {
@@ -90,7 +91,7 @@ protocol JsonStringWrapperAvailable {
 
 
 
-enum JSONDefaultWrapper {
+enum JSONDefaultWrapper2 {
     
     @propertyWrapper
     struct Wrapper<T: JSONDefaultWrapperAvailable> {
@@ -106,9 +107,6 @@ enum JSONDefaultWrapper {
     }
     
     
-
-    
-    
     enum TypeCase {
         enum True: JSONDefaultWrapperAvailable {
             static var defaultValue: Bool { true }
@@ -116,6 +114,10 @@ enum JSONDefaultWrapper {
         
         enum False: JSONDefaultWrapperAvailable {
             static var defaultValue: Bool { false }
+        }
+        
+        enum EmptyString: JSONDefaultWrapperAvailable {
+            static var defaultValue: String { "" }
         }
         
         enum Zero<T: Decodable>: JSONDefaultWrapperAvailable where T: Numeric {
@@ -132,26 +134,18 @@ enum JSONDefaultWrapper {
     }
 }
 
-extension JSONDefaultWrapper.Wrapper: Decodable {
-    class AA {
-        
-    }
-    struct BB {
-        
-    }
+extension JSONDefaultWrapper2.Wrapper: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         wrappedValue = try container.decode(ValueType.self)
         
-        let aa = AA()
-        let bb = BB()
     
     }
     
     
 }
 
-extension JSONDefaultWrapper.StringBoolConverter: Decodable {
+extension JSONDefaultWrapper2.StringBoolConverter: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let stringBool = try? container.decode(String.self)
@@ -160,21 +154,22 @@ extension JSONDefaultWrapper.StringBoolConverter: Decodable {
     }
 }
 
-extension JSONDefaultWrapper {
-    typealias DefaultTrue = Wrapper<JSONDefaultWrapper.TypeCase.True>
-    typealias DefaultFalse = Wrapper<JSONDefaultWrapper.TypeCase.False>
-    typealias DefaultZeroDouble = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Double>>
-    typealias DefaultZeroInt = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Int>>
-    typealias DefaultStringTrue = StringBoolConverter<JSONDefaultWrapper.TypeCase.StringTrue>
-    typealias DefaultStringFalse = StringBoolConverter<JSONDefaultWrapper.TypeCase.StringFalse>
+extension JSONDefaultWrapper2 {
+    typealias DefaultTrue = Wrapper<JSONDefaultWrapper2.TypeCase.True>
+    typealias DefaultFalse = Wrapper<JSONDefaultWrapper2.TypeCase.False>
+    typealias DefaultZeroDouble = Wrapper<JSONDefaultWrapper2.TypeCase.Zero<Double>>
+    typealias DefaultZeroInt = Wrapper<JSONDefaultWrapper2.TypeCase.Zero<Int>>
+    typealias DefaultZeroCGFloat = Wrapper<JSONDefaultWrapper2.TypeCase.Zero<CGFloat>>
+    typealias DefaultStringTrue = StringBoolConverter<JSONDefaultWrapper2.TypeCase.StringTrue>
+    typealias DefaultStringFalse = StringBoolConverter<JSONDefaultWrapper2.TypeCase.StringFalse>
 }
 
 extension KeyedDecodingContainer {
-    func decode<T: JSONDefaultWrapperAvailable>(_ type: JSONDefaultWrapper.Wrapper<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper.Wrapper<T> {
+    func decode<T: JSONDefaultWrapperAvailable>(_ type: JSONDefaultWrapper2.Wrapper<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper2.Wrapper<T> {
         try decodeIfPresent(type, forKey: key) ?? .init()
     }
     
-    func decode<T: DefaultWrapperStringConverterAvailable>(_ type: JSONDefaultWrapper.StringBoolConverter<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper.StringBoolConverter<T> {
+    func decode<T: DefaultWrapperStringConverterAvailable>(_ type: JSONDefaultWrapper2.StringBoolConverter<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper2.StringBoolConverter<T> {
         let value = try decodeIfPresent(type, forKey: key)
         let result = value ?? .init()
             
@@ -187,12 +182,12 @@ extension KeyedDecodingContainer {
 
 // MARK: - Test
 class PropertyWrapperGeneric: Decodable {
-    @JSONDefaultWrapper.DefaultTrue var isHiddenTrue
-    @JSONDefaultWrapper.DefaultFalse var isHiddenFalse
-    @JSONDefaultWrapper.DefaultZeroDouble var doubleValue: Double
-    @JSONDefaultWrapper.DefaultZeroInt var intValue: Int
-    @JSONDefaultWrapper.DefaultStringTrue var isStringTrue:Bool
-    @JSONDefaultWrapper.DefaultStringFalse var isStringFalse
+    @JSONDefaultWrapper2.DefaultTrue var isHiddenTrue
+    @JSONDefaultWrapper2.DefaultFalse var isHiddenFalse
+    @JSONDefaultWrapper2.DefaultZeroDouble var doubleValue: Double
+    @JSONDefaultWrapper2.DefaultZeroInt var intValue: Int
+    @JSONDefaultWrapper2.DefaultStringTrue var isStringTrue:Bool
+    @JSONDefaultWrapper2.DefaultStringFalse var isStringFalse
     
     
     static func test() {
@@ -202,6 +197,7 @@ class PropertyWrapperGeneric: Decodable {
                 "isStringTrue" : "N"
             }
             """.data(using: .utf8)!
+        
         
         do {
             let object = try JSONDecoder().decode(PropertyWrapperGeneric.self, from: json)
@@ -281,5 +277,98 @@ extension WrapperPosting1.JsonStringWrapper {
 extension KeyedDecodingContainer {
     func decode(_ type: WrapperPosting1.JsonStringWrapper.Type, forKey key: Key) throws -> WrapperPosting1.JsonStringWrapper {
         try decodeIfPresent(type, forKey: key) ?? .init()
+    }
+}
+
+// MARK: - For Posting 3
+enum JSONDefaultWrapper {
+    typealias EmptyString = Wrapper<JSONDefaultWrapper.TypeCase.EmptyString>
+    typealias True = Wrapper<JSONDefaultWrapper.TypeCase.True>
+    typealias False = Wrapper<JSONDefaultWrapper.TypeCase.False>
+    typealias IntZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Int>>
+    typealias DoubleZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Double>>
+    typealias FloatZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<Float>>
+    typealias CGFloatZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<CGFloat>>
+    
+    // Property Wrapper
+    @propertyWrapper
+    struct Wrapper<T: JSONDefaultWrapperAvailable> {
+        typealias ValueType = T.ValueType
+
+        var wrappedValue: ValueType
+
+        init() {
+        wrappedValue = T.defaultValue
+        }
+    }
+
+    enum TypeCase {
+        // Type Enums
+        enum True: JSONDefaultWrapperAvailable {
+            // 기본값 - true
+            static var defaultValue: Bool { true }
+        }
+
+        enum False: JSONDefaultWrapperAvailable {
+            // 기본값 - false
+            static var defaultValue: Bool { false }
+        }
+
+        enum EmptyString: JSONDefaultWrapperAvailable {
+            // 기본값 - ""
+            static var defaultValue: String { "" }
+        }
+        
+        enum Zero<T: Decodable>: JSONDefaultWrapperAvailable where T: Numeric {
+            // 기본값 - 0
+            static var defaultValue: T { 0 }
+        }
+    }
+}
+
+extension JSONDefaultWrapper.Wrapper: Decodable {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.wrappedValue = try container.decode(ValueType.self)
+    }
+}
+
+extension KeyedDecodingContainer {
+    func decode<T: JSONDefaultWrapperAvailable>(_ type: JSONDefaultWrapper.Wrapper<T>.Type, forKey key: Key) throws -> JSONDefaultWrapper.Wrapper<T> {
+        try decodeIfPresent(type, forKey: key) ?? .init()
+    }
+}
+
+class Posting: Decodable {
+    // Property Wrapper를 이용한 프로퍼티
+    @JSONDefaultWrapper.EmptyString var stringValue: String
+    @JSONDefaultWrapper.True var trueValue: Bool
+    @JSONDefaultWrapper.False var falseValue: Bool
+    @JSONDefaultWrapper.IntZero var intValue: Int
+    @JSONDefaultWrapper.DoubleZero var doubleValue: Double
+    @JSONDefaultWrapper.FloatZero var floatValue: Float
+    @JSONDefaultWrapper.CGFloatZero var cGFloatValue: CGFloat
+    
+    static func test() {
+        // 전혀 상관없는 JSON 형태의 데이터
+        let data = """
+            {
+                "test": 3,
+            }
+            """.data(using: .utf8)!
+        
+        // Decodable을 이용한 객체 생성
+        let object = try! JSONDecoder().decode(Posting.self, from: data)
+        
+        // 빈값인지 확인
+        print("""
+            stringValue는 빈 값인가? \(object.stringValue == "")
+            trueValue는? \(object.trueValue)
+            falseValue는? \(object.falseValue)
+            intValue는? \(object.intValue)
+            doubleValue는? \(object.doubleValue)
+            floatValue는? \(object.floatValue)
+            cGFloatValue는? \(object.cGFloatValue)
+            """)
     }
 }

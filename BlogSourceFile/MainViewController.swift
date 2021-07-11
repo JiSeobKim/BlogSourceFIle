@@ -38,6 +38,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         cellInfos = CellInfo.allCases
+        
+        Posting.test()
     }
 }
 
