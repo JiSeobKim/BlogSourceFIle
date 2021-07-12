@@ -190,7 +190,13 @@ class Posting2: Decodable {
         // 전혀 상관없는 JSON 형태의 데이터
         let data = """
             {
-                "test" : "test"
+                "stringFalseValue": "Y",
+                "stringTrueValue": "N",
+                "dateValue" : 1626012942,
+                "listValue" : [
+                    {"isTest" : "Hi"},
+                    {"isTest" : "Hi2"},
+                ]
             }
             """.data(using: .utf8)!
         

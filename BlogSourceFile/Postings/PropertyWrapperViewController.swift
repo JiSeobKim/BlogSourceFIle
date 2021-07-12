@@ -20,7 +20,8 @@ class PropertyWrapperViewController: UIViewController {
 //        postingFunction1()
         
 //        PropertyWrapperGeneric.test()
-        WrapperPosting1.run()
+//        WrapperPosting1.run()
+        Posting2.test()
     }
     
 
