@@ -27,6 +27,7 @@ enum JSONDefaultWrapper {
     typealias CGFloatZero = Wrapper<JSONDefaultWrapper.TypeCase.Zero<CGFloat>>
     typealias StringFalse = StringConverterWrapper<JSONDefaultWrapper.TypeCase.StringFalse>
     typealias StringTrue = StringConverterWrapper<JSONDefaultWrapper.TypeCase.StringTrue>
+    typealias EmptyList<T: Decodable & ExpressibleByArrayLiteral> = Wrapper<JSONDefaultWrapper.TypeCase.List<T>>
     
     // Property Wrapper - Optional Type to Type
     @propertyWrapper
@@ -92,6 +93,11 @@ enum JSONDefaultWrapper {
         enum StringTrue: JSONStringConverterAvailable {
             // 기본값 - false
             static var defaultValue: Bool { true }
+        }
+        
+        enum List<T: Decodable & ExpressibleByArrayLiteral>: JSONDefaultWrapperAvailable {
+            // 기본값 - []
+            static var defaultValue: T { [] }
         }
     }
 }
@@ -172,4 +178,45 @@ class Posting: Decodable {
             dateValue는? \(object.dateValue)
             """)
     }
+}
+
+class Posting2: Decodable {
+    @JSONDefaultWrapper.StringFalse var stringFalseValue: Bool
+    @JSONDefaultWrapper.StringTrue var stringTrueValue: Bool
+    @JSONDefaultWrapper.TimestampToOptionalDate var dateValue: Date?
+    @JSONDefaultWrapper.EmptyList var listValue: [Posting3]
+    
+    static func test() {
+        // 전혀 상관없는 JSON 형태의 데이터
+        let data = """
+            {
+                "test" : "test"
+            }
+            """.data(using: .utf8)!
+        
+        // Decodable을 이용한 객체 생성
+        let object = try! JSONDecoder().decode(Posting2.self, from: data)
+        
+        // 다른 타입으로 변환 - 키 없을 시 기본 값 사용
+        print("""
+            stringFalseValue는? \(object.stringFalseValue)
+            stringTrueValue는? \(object.stringTrueValue)
+            """)
+        
+        
+        // 다른 타입으로 변환 - 옵셔널
+        if let dateValue = object.dateValue {
+            print("dateValue는? \(dateValue)")
+        } else {
+            print("dateValue는? nil이다")
+        }
+        
+        // 리스트 처리
+        print("listValue는? \(object.listValue.count)개")
+    }
+}
+
+
+class Posting3: Decodable {
+    var isTest: String?
 }
