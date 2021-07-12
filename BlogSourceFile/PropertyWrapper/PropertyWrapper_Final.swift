@@ -51,6 +51,16 @@ enum JSONDefaultWrapper {
     struct TimestampToOptionalDate {
         var wrappedValue: Date?
     }
+    
+    @propertyWrapper
+    struct TrueByStringToBool {
+        var wrappedValue: Bool = true
+    }
+    
+    @propertyWrapper
+    struct FalseByStringToBool {
+        var wrappedValue: Bool = false
+    }
 
     enum TypeCase {
         // Type Enums
