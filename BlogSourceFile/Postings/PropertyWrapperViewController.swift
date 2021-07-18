@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import JsJsonDecoderWrapper
+
+class Test222: Decodable {
+    @JsJsonDecoderWrapper.JSONDecoderWrapper.EmptyString var e: String
+    
+}
 
 class PropertyWrapperViewController: UIViewController {
     
@@ -22,6 +28,14 @@ class PropertyWrapperViewController: UIViewController {
 //        PropertyWrapperGeneric.test()
 //        WrapperPosting1.run()
         Posting2.test()
+        
+        let test = """
+            {
+                "e" : ""
+            }
+            """.data(using: .utf8)!
+        let value = try! JSONDecoder().decode(Test222.self, from: test)
+        print(">>> e = \(value.e)")
     }
     
 

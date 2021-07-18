@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "JsJsonDecoderWrapper",
+        "repositoryURL": "https://github.com/JiSeobKim/JsJsonDecoderWrapper.git",
+        "state": {
+          "branch": null,
+          "revision": "0e149c512f89f46bf853b8198dffdc031ac27e34",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
