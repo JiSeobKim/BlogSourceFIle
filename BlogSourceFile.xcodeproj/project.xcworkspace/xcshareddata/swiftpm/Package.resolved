@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "JsJsonDecoderWrapper",
-        "repositoryURL": "https://github.com/JiSeobKim/JsJsonDecoderWrapper.git",
+        "repositoryURL": "https://github.com/JiSeobKim/Js_JsonDecoderWrapper.git",
         "state": {
           "branch": null,
-          "revision": "0e149c512f89f46bf853b8198dffdc031ac27e34",
-          "version": "1.0.1"
+          "revision": "d612466c0f02490c53fadb69d2330b236b336fed",
+          "version": "1.0.0"
         }
       }
     ]

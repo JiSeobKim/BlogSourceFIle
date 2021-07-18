@@ -10,7 +10,7 @@
 		A03C7AB52674EEB0002E904F /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C7AB42674EEB0002E904F /* UserDefaultWrapper.swift */; };
 		A03C7AB72674F5E4002E904F /* PropertyWrapper_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C7AB62674F5E4002E904F /* PropertyWrapper_Base.swift */; };
 		A03C7AB926750101002E904F /* PropertyWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C7AB826750101002E904F /* PropertyWrapperViewController.swift */; };
-		A056914326A4240B007454A6 /* JsJsonDecoderWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = A056914226A4240B007454A6 /* JsJsonDecoderWrapper */; };
+		A067889C26A43BD500A40F9D /* JsJsonDecoderWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = A067889B26A43BD500A40F9D /* JsJsonDecoderWrapper */; };
 		A0816C112663889E00DB525D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C102663889E00DB525D /* AppDelegate.swift */; };
 		A0816C132663889E00DB525D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0816C122663889E00DB525D /* SceneDelegate.swift */; };
 		A0816C182663889E00DB525D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0816C162663889E00DB525D /* Main.storyboard */; };
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A056914326A4240B007454A6 /* JsJsonDecoderWrapper in Frameworks */,
+				A067889C26A43BD500A40F9D /* JsJsonDecoderWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +224,7 @@
 			);
 			name = BlogSourceFile;
 			packageProductDependencies = (
-				A056914226A4240B007454A6 /* JsJsonDecoderWrapper */,
+				A067889B26A43BD500A40F9D /* JsJsonDecoderWrapper */,
 			);
 			productName = BlogSourceFile;
 			productReference = A0816C0D2663889E00DB525D /* BlogSourceFile.app */;
@@ -298,7 +298,7 @@
 			);
 			mainGroup = A0816C042663889E00DB525D;
 			packageReferences = (
-				A056914126A4240B007454A6 /* XCRemoteSwiftPackageReference "JsJsonDecoderWrapper" */,
+				A067889A26A43BD500A40F9D /* XCRemoteSwiftPackageReference "Js_JsonDecoderWrapper" */,
 			);
 			productRefGroup = A0816C0E2663889E00DB525D /* Products */;
 			projectDirPath = "";
@@ -696,9 +696,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A056914126A4240B007454A6 /* XCRemoteSwiftPackageReference "JsJsonDecoderWrapper" */ = {
+		A067889A26A43BD500A40F9D /* XCRemoteSwiftPackageReference "Js_JsonDecoderWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JiSeobKim/JsJsonDecoderWrapper.git";
+			repositoryURL = "https://github.com/JiSeobKim/Js_JsonDecoderWrapper.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -707,9 +707,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A056914226A4240B007454A6 /* JsJsonDecoderWrapper */ = {
+		A067889B26A43BD500A40F9D /* JsJsonDecoderWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A056914126A4240B007454A6 /* XCRemoteSwiftPackageReference "JsJsonDecoderWrapper" */;
+			package = A067889A26A43BD500A40F9D /* XCRemoteSwiftPackageReference "Js_JsonDecoderWrapper" */;
 			productName = JsJsonDecoderWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
