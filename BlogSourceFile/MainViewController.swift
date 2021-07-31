@@ -13,12 +13,14 @@ class MainViewController: UIViewController {
         case codingKey = "CodingKey 포스팅"
         case codableThrow = "Codable Throw 포스팅"
         case propertyWrapper = "Property Wrapper 포스팅"
+        case SPMMake = "SPM 포스팅"
         
         var segueID: String {
             switch self {
             case .codingKey: return "CodingKey"
             case .codableThrow: return "CodableThrow"
             case .propertyWrapper: return "PropertyWrapper"
+            case .SPMMake: return "SPMMake"
             }
         }
         

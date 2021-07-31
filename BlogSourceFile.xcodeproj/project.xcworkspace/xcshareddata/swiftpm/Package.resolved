@@ -9,6 +9,15 @@
           "revision": "d612466c0f02490c53fadb69d2330b236b336fed",
           "version": "1.0.0"
         }
+      },
+      {
+        "package": "JSLibrary",
+        "repositoryURL": "https://github.com/JiSeobKim/JSLibrary.git",
+        "state": {
+          "branch": "main",
+          "revision": "38967da3c1b0db223dde58857d119413beae9081",
+          "version": null
+        }
       }
     ]
   },

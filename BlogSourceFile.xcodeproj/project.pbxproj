@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,8 @@
 		A0B879162688AEE300B1A398 /* PropertyWrapper_Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B879152688AEE300B1A398 /* PropertyWrapper_Generic.swift */; };
 		A0EB035F2675BA8000A751ED /* MaxPriceOrLessWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */; };
 		A0EB4C51267F422400DA68C0 /* PropertyWrapperJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */; };
+		A0F29B8F26B520DD00360556 /* SPMMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F29B8E26B520DD00360556 /* SPMMakeViewController.swift */; };
+		A0F29B9226B5234400360556 /* JSLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0F29B9126B5234400360556 /* JSLibrary */; };
 		A0FAB461269B2CFB001EDD3A /* PropertyWrapper_Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FAB460269B2CFB001EDD3A /* PropertyWrapper_Final.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,7 @@
 		A0B879152688AEE300B1A398 /* PropertyWrapper_Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper_Generic.swift; sourceTree = "<group>"; };
 		A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxPriceOrLessWrapper.swift; sourceTree = "<group>"; };
 		A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PropertyWrapperJSON.json; sourceTree = "<group>"; };
+		A0F29B8E26B520DD00360556 /* SPMMakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPMMakeViewController.swift; sourceTree = "<group>"; };
 		A0FAB460269B2CFB001EDD3A /* PropertyWrapper_Final.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper_Final.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A067889C26A43BD500A40F9D /* JsJsonDecoderWrapper in Frameworks */,
+				A0F29B9226B5234400360556 /* JSLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +149,7 @@
 			children = (
 				A0816C102663889E00DB525D /* AppDelegate.swift */,
 				A0816C122663889E00DB525D /* SceneDelegate.swift */,
-				A0816C5126638D8C00DB525D /* Postings */,
+				A0816C5126638D8C00DB525D /* PostingsVCs */,
 				A03C7AB32674EE92002E904F /* PropertyWrapper */,
 				A0816C4E2663898C00DB525D /* MainViewController.swift */,
 				A0816C162663889E00DB525D /* Main.storyboard */,
@@ -197,14 +201,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		A0816C5126638D8C00DB525D /* Postings */ = {
+		A0816C5126638D8C00DB525D /* PostingsVCs */ = {
 			isa = PBXGroup;
 			children = (
 				A0816C442663896A00DB525D /* CodingKeyWithOtherTypeVC.swift */,
 				A0816C522663936700DB525D /* CodableThrowWithCodingKeyVC.swift */,
 				A03C7AB826750101002E904F /* PropertyWrapperViewController.swift */,
+				A0F29B8E26B520DD00360556 /* SPMMakeViewController.swift */,
 			);
-			path = Postings;
+			path = PostingsVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +230,7 @@
 			name = BlogSourceFile;
 			packageProductDependencies = (
 				A067889B26A43BD500A40F9D /* JsJsonDecoderWrapper */,
+				A0F29B9126B5234400360556 /* JSLibrary */,
 			);
 			productName = BlogSourceFile;
 			productReference = A0816C0D2663889E00DB525D /* BlogSourceFile.app */;
@@ -289,7 +295,7 @@
 				};
 			};
 			buildConfigurationList = A0816C082663889E00DB525D /* Build configuration list for PBXProject "BlogSourceFile" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -299,6 +305,7 @@
 			mainGroup = A0816C042663889E00DB525D;
 			packageReferences = (
 				A067889A26A43BD500A40F9D /* XCRemoteSwiftPackageReference "Js_JsonDecoderWrapper" */,
+				A0F29B9026B5234400360556 /* XCRemoteSwiftPackageReference "JSLibrary" */,
 			);
 			productRefGroup = A0816C0E2663889E00DB525D /* Products */;
 			projectDirPath = "";
@@ -354,6 +361,7 @@
 				A0FAB461269B2CFB001EDD3A /* PropertyWrapper_Final.swift in Sources */,
 				A03C7AB52674EEB0002E904F /* UserDefaultWrapper.swift in Sources */,
 				A0816C4A2663896A00DB525D /* CodingKeyWithOtherTypeVC.swift in Sources */,
+				A0F29B8F26B520DD00360556 /* SPMMakeViewController.swift in Sources */,
 				A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */,
 				A0816C492663896A00DB525D /* DummyJsonLoader.swift in Sources */,
 				A0816C1B2663889E00DB525D /* BlogSourceFile.xcdatamodeld in Sources */,
@@ -453,6 +461,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -704,6 +713,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A0F29B9026B5234400360556 /* XCRemoteSwiftPackageReference "JSLibrary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JiSeobKim/JSLibrary.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +728,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A067889A26A43BD500A40F9D /* XCRemoteSwiftPackageReference "Js_JsonDecoderWrapper" */;
 			productName = JsJsonDecoderWrapper;
+		};
+		A0F29B9126B5234400360556 /* JSLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0F29B9026B5234400360556 /* XCRemoteSwiftPackageReference "JSLibrary" */;
+			productName = JSLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 

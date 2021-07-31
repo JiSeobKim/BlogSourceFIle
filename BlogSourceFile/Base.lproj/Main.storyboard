@@ -64,6 +64,7 @@
                         <segue destination="f5a-aq-kYy" kind="show" identifier="CodingKey" id="VsY-bs-Chs"/>
                         <segue destination="XTG-0X-lu6" kind="show" identifier="CodableThrow" id="Un3-y0-c4e"/>
                         <segue destination="FbF-pz-3af" kind="show" identifier="PropertyWrapper" id="Ypm-c9-moK"/>
+                        <segue destination="UBC-se-XfC" kind="show" identifier="SPMMake" id="6Df-zq-f8n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -116,6 +117,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0j-Dx-kWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2215.9420289855075" y="547.76785714285711"/>
+        </scene>
+        <!--Make View Controller-->
+        <scene sceneID="CfZ-bz-7dm">
+            <objects>
+                <viewController id="UBC-se-XfC" customClass="SPMMakeViewController" customModule="BlogSourceFile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tfv-eK-j7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="het-PN-D4I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="90d-xf-pga"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uY-qy-Wl9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="1213"/>
         </scene>
         <!--Property Wrapper View Controller-->
         <scene sceneID="EFP-bS-m7z">
