@@ -8,26 +8,73 @@
 import XCTest
 @testable import BlogSourceFile
 
-class BlogSourceFileTests: XCTestCase {
+class MockTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    private var sut: TestDouble.Company!
+    private var printerMock: TestDouble.PrinterMock!
+    
+    override func setUp() {
+        printerMock = TestDouble.PrinterMock()
+        sut = TestDouble.Company(printer: printerMock)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_call_network() {
+        // given
+        // when
+        sut.submit(complete: {})
+        
+        // then
+        XCTAssertEqual(printerMock.networkCallCount, 1)
     }
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+class SPYTests: XCTestCase {
+
+    private var sut: TestDouble.Company!
+    private var printerSPY: TestDouble.PrinterSPY!
+    
+    override func setUp() {
+        printerSPY = TestDouble.PrinterSPY()
+        sut = TestDouble.Company(printer: printerSPY)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_call_network() {
+        // given
+        let exp = expectation(description: "exp")
+        
+        // when
+        sut.submit(complete: {
+            exp.fulfill()
+        })
+        
+        wait(for: [exp], timeout: 2)
+        
+        // then
+        XCTAssertEqual(sut.printedText, "안녕 SPY?")
+        XCTAssertEqual(printerSPY.networkCallCount, 1)
     }
+}
 
+class StubTests: XCTestCase {
+
+    private var sut: TestDouble.Company!
+    private var printerStub: TestDouble.PrinterStub!
+    
+    override func setUp() {
+        printerStub = TestDouble.PrinterStub()
+        sut = TestDouble.Company(printer: printerStub)
+    }
+    func test_call_network() {
+        // given
+        let exp = expectation(description: "exp")
+        
+        // when
+        sut.submit(complete: {
+            exp.fulfill()
+        })
+        
+        wait(for: [exp], timeout: 2)
+        
+        // then
+        XCTAssertEqual(sut.printedText, "안녕 Stub?")
+    }
 }

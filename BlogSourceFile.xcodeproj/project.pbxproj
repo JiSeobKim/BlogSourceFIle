@@ -32,6 +32,7 @@
 		A0EB4C51267F422400DA68C0 /* PropertyWrapperJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */; };
 		A0F29B8F26B520DD00360556 /* SPMMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F29B8E26B520DD00360556 /* SPMMakeViewController.swift */; };
 		A0F29B9226B5234400360556 /* JSLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0F29B9126B5234400360556 /* JSLibrary */; };
+		A0F36A6227B13B0500164BEA /* TestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F36A6127B13B0500164BEA /* TestDouble.swift */; };
 		A0FAB461269B2CFB001EDD3A /* PropertyWrapper_Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FAB460269B2CFB001EDD3A /* PropertyWrapper_Final.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		A0EB035E2675BA8000A751ED /* MaxPriceOrLessWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxPriceOrLessWrapper.swift; sourceTree = "<group>"; };
 		A0EB4C50267F422400DA68C0 /* PropertyWrapperJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PropertyWrapperJSON.json; sourceTree = "<group>"; };
 		A0F29B8E26B520DD00360556 /* SPMMakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPMMakeViewController.swift; sourceTree = "<group>"; };
+		A0F36A6127B13B0500164BEA /* TestDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDouble.swift; sourceTree = "<group>"; };
 		A0FAB460269B2CFB001EDD3A /* PropertyWrapper_Final.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper_Final.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			children = (
 				A0816C102663889E00DB525D /* AppDelegate.swift */,
 				A0816C122663889E00DB525D /* SceneDelegate.swift */,
+				A0F36A6027B13AF300164BEA /* Test Double */,
 				A0816C5126638D8C00DB525D /* PostingsVCs */,
 				A03C7AB32674EE92002E904F /* PropertyWrapper */,
 				A0816C4E2663898C00DB525D /* MainViewController.swift */,
@@ -210,6 +213,14 @@
 				A0F29B8E26B520DD00360556 /* SPMMakeViewController.swift */,
 			);
 			path = PostingsVCs;
+			sourceTree = "<group>";
+		};
+		A0F36A6027B13AF300164BEA /* Test Double */ = {
+			isa = PBXGroup;
+			children = (
+				A0F36A6127B13B0500164BEA /* TestDouble.swift */,
+			);
+			path = "Test Double";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +372,7 @@
 				A0FAB461269B2CFB001EDD3A /* PropertyWrapper_Final.swift in Sources */,
 				A03C7AB52674EEB0002E904F /* UserDefaultWrapper.swift in Sources */,
 				A0816C4A2663896A00DB525D /* CodingKeyWithOtherTypeVC.swift in Sources */,
+				A0F36A6227B13B0500164BEA /* TestDouble.swift in Sources */,
 				A0F29B8F26B520DD00360556 /* SPMMakeViewController.swift in Sources */,
 				A0816C532663936700DB525D /* CodableThrowWithCodingKeyVC.swift in Sources */,
 				A0816C492663896A00DB525D /* DummyJsonLoader.swift in Sources */,
